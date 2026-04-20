@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(249, 249, 248, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  perspective: 1000px;
+}
+
+/* Staggered Layers physics */
+.modal-layer {
+  position: absolute;
+  inset: 0;
+  background: white;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.layer-1 { background: #f8f8f8; z-index: 1; }
+.layer-2 { background: #eeeeee; z-index: 2; }
+
+.layer-main {
+  position: relative;
+  background: white;
+  z-index: 3;
+  border: 1px solid #1A1A1A;
+  padding: 50px 60px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+    .layer-main { padding: 40px 24px; }
+}
+
+/* Form Layout - Fully Stacked */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+}
+
+/* Force all fields to be stacked */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #52525B;
+    font-weight: 600;
+}
+
+.modal-input {
+    width: 100%;
+    background: #FDFDFD;
+    border: 1px solid #E5E7EB;
+    padding: 16px 20px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #1A1A1A;
+    outline: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modal-input:focus {
+    border-color: #0047AB;
+    background: white;
+    box-shadow: 0 0 0 5px rgba(0, 71, 171, 0.04);
+}
+
+.modal-textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    rotate: 90deg;
+    color: #0047AB;
+}
+
+.booking-submit {
+    height: 65px;
+    background: #1A1A1A;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.booking-submit:hover {
+    background: #0047AB;
+    gap: 25px;
+}
+
+.footer-meta {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #E5E7EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #A1A1AA;
+}
