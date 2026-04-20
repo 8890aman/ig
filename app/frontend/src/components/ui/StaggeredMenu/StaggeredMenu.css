@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 0; /* Reduced padding to fit within container-custom context */
+  padding: 1.5rem 0;
   background: transparent;
   pointer-events: none;
   z-index: 20;
@@ -177,8 +177,11 @@
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
   border-top: 1px solid rgba(26,26,26,0.1);
+  width: 100%;
+  max-width: 300px;
 }
 
 .sm-socials-title {
@@ -186,8 +189,9 @@
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: #0047AB;
+  text-align: center;
 }
 
 .sm-socials-list {
@@ -197,7 +201,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 2.5rem;
   flex-wrap: wrap;
 }
 
@@ -206,11 +211,12 @@
   font-weight: 500;
   color: #1A1A1A;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .sm-socials-link:hover {
   color: #0047AB;
+  transform: translateY(-2px);
 }
 
 .sm-panel-list {
@@ -225,7 +231,7 @@
 
 .sm-panel-itemWrap {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   line-height: 1.2;
 }
 
@@ -242,7 +248,7 @@
   transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   display: inline-block;
   text-decoration: none;
-  padding: 0.2rem 1.5em 0.2rem 0;
+  padding: 0.2rem 2rem 0.2rem 0;
 }
 
 .sm-panel-itemLabel {
@@ -263,15 +269,15 @@
   content: counter(smItem, decimal-leading-zero);
   position: absolute;
   top: 0.1em;
-  right: 0;
-  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  right: -1rem;
+  font-size: clamp(1.2rem, 3vw, 2rem);
   font-weight: 500;
   color: #0047AB;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   pointer-events: none;
   user-select: none;
   opacity: var(--sm-num-opacity, 0);
-  font-family: monospace;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 /* Removed mobile width override as it's now full screen by default */
