@@ -368,51 +368,54 @@ export const StaggeredMenu = ({
           return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
         })()}
       </div>
+
       <header className="staggered-menu-header" aria-label="Main navigation header">
-        <div className="sm-logo" aria-label="Logo">
-          {logoUrl ? (
-            <img
-              src={logoUrl}
-              alt="Logo"
-              className="sm-logo-img"
-              draggable={false}
-              width={110}
-              height={24}
-            />
-          ) : (
-             <div className="flex items-center gap-2.5 group">
-                <div className="relative w-8 h-8 grid place-items-center border border-[#1A1A1A] transition-colors duration-500">
-                    <div className="w-1.5 h-1.5 bg-[#0047AB] transition-colors duration-500" />
-                </div>
-                <span className="font-display text-[17px] tracking-tight font-medium text-[#1A1A1A]">
-                    Installer<span className="text-[#0047AB]">Guru</span>
-                </span>
-            </div>
-          )}
-        </div>
-        <button
-          ref={toggleBtnRef}
-          className="sm-toggle"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          aria-controls="staggered-menu-panel"
-          onClick={toggleMenu}
-          type="button"
-        >
-          <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
-            <span ref={textInnerRef} className="sm-toggle-textInner">
-              {textLines.map((l, i) => (
-                <span className="sm-toggle-line" key={i}>
-                  {l}
-                </span>
-              ))}
+        <div className="container-custom flex items-center justify-between w-full">
+          <div className="sm-logo" aria-label="Logo">
+            {logoUrl ? (
+              <img
+                src={logoUrl}
+                alt="Logo"
+                className="sm-logo-img"
+                draggable={false}
+                width={110}
+                height={24}
+              />
+            ) : (
+               <div className="flex items-center gap-2.5 group">
+                  <div className="relative w-8 h-8 grid place-items-center border border-[#1A1A1A] transition-colors duration-500">
+                      <div className="w-1.5 h-1.5 bg-[#0047AB] transition-colors duration-500" />
+                  </div>
+                  <span className="font-display text-[17px] tracking-tight font-medium text-[#1A1A1A]">
+                      Installer<span className="text-[#0047AB]">Guru</span>
+                  </span>
+              </div>
+            )}
+          </div>
+          <button
+            ref={toggleBtnRef}
+            className="sm-toggle"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            aria-controls="staggered-menu-panel"
+            onClick={toggleMenu}
+            type="button"
+          >
+            <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
+              <span ref={textInnerRef} className="sm-toggle-textInner">
+                {textLines.map((l, i) => (
+                  <span className="sm-toggle-line" key={i}>
+                    {l}
+                  </span>
+                ))}
+              </span>
             </span>
-          </span>
-          <span ref={iconRef} className="sm-icon" aria-hidden="true">
-            <span ref={plusHRef} className="sm-icon-line" />
-            <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
-          </span>
-        </button>
+            <span ref={iconRef} className="sm-icon" aria-hidden="true">
+              <span ref={plusHRef} className="sm-icon-line" />
+              <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
+            </span>
+          </button>
+        </div>
       </header>
 
       <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>

@@ -91,19 +91,17 @@ export default function Navbar() {
 
       {/* Mobile Staggered Menu */}
       <div className="lg:hidden absolute top-0 left-0 right-0 h-full">
-        <div className="container-custom relative h-full">
-          <StaggeredMenu
-            items={NAV}
-            socialItems={[
-              { label: "WhatsApp", link: "https://wa.me/917003489743" },
-              { label: "LinkedIn", link: "https://linkedin.com" },
-            ]}
-            menuButtonColor="#1A1A1A"
-            openMenuButtonColor="#1A1A1A"
-            accentColor="#0047AB"
-            colors={["#F9F9F8", "#0047AB"]}
-          />
-        </div>
+        <StaggeredMenu
+          items={NAV}
+          socialItems={[
+            { label: "WhatsApp", link: "https://wa.me/917003489743" },
+            { label: "LinkedIn", link: "https://linkedin.com" },
+          ]}
+          menuButtonColor="#1A1A1A"
+          openMenuButtonColor="#1A1A1A"
+          accentColor="#0047AB"
+          colors={["#F9F9F8", "#0047AB"]}
+        />
       </div>
     </motion.header>
   );

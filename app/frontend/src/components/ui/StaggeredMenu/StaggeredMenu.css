@@ -116,17 +116,18 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: clamp(300px, 40vw, 500px);
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: #F9F9F8;
   display: flex;
   flex-direction: column;
-  padding: 8rem 3rem 3rem 3rem;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
   overflow-y: auto;
   z-index: 10;
   pointer-events: auto;
   opacity: 0;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.03);
 }
 
 [data-position='left'] .staggered-menu-panel {
@@ -139,7 +140,7 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: clamp(300px, 40vw, 500px);
+  width: 100vw;
   pointer-events: none;
   z-index: 5;
   opacity: 0;
@@ -161,10 +162,14 @@
 }
 
 .sm-panel-inner {
-  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
 .sm-socials {
@@ -215,6 +220,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .sm-panel-itemWrap {
@@ -226,17 +232,17 @@
 .sm-panel-item {
   position: relative;
   color: #1A1A1A;
-  font-weight: 500;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 6rem);
   cursor: pointer;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   text-transform: uppercase;
   font-family: inherit;
-  transition: color 0.3s;
+  transition: color 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   display: inline-block;
   text-decoration: none;
-  padding-right: 1.5em;
+  padding: 0.2rem 1.5em 0.2rem 0;
 }
 
 .sm-panel-itemLabel {
@@ -256,9 +262,9 @@
   counter-increment: smItem;
   content: counter(smItem, decimal-leading-zero);
   position: absolute;
-  top: 0.2em;
-  right: 0.5em;
-  font-size: 12px;
+  top: 0.1em;
+  right: 0;
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
   font-weight: 500;
   color: #0047AB;
   letter-spacing: 0.1em;
@@ -268,10 +274,4 @@
   font-family: monospace;
 }
 
-@media (max-width: 1024px) {
-  .staggered-menu-panel, .sm-prelayers {
-    width: 100%;
-    left: 0;
-    right: 0;
-  }
-}
+/* Removed mobile width override as it's now full screen by default */
