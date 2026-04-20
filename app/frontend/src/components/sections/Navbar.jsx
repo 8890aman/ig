@@ -34,11 +34,11 @@ export default function Navbar() {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo - Hidden on mobile, shown on desktop */}
           <a
             href="#top"
             data-testid="navbar-logo"
-            className="flex items-center gap-2.5 group"
+            className="hidden lg:flex items-center gap-2.5 group"
           >
             <div className="relative w-8 h-8 grid place-items-center border border-[#1A1A1A] group-hover:bg-[#1A1A1A] transition-colors duration-500">
               <div className="w-1.5 h-1.5 bg-[#0047AB] group-hover:bg-white transition-colors duration-500" />
@@ -89,7 +89,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Staggered Menu */}
+      {/* Mobile Staggered Menu - Provides the logo and CTA on mobile */}
       <div className="lg:hidden absolute top-0 left-0 right-0 h-full">
         <StaggeredMenu
           items={NAV}
