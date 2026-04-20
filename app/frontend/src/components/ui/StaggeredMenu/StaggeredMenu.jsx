@@ -1,5 +1,6 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import { Link } from 'react-router-dom';
 import './StaggeredMenu.css';
 
 export const StaggeredMenu = ({
@@ -371,7 +372,7 @@ export const StaggeredMenu = ({
 
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="container-custom flex items-center justify-between w-full">
-          <div className="sm-logo" aria-label="Logo">
+          <Link to="/" className="sm-logo" aria-label="Logo" onClick={closeMenu}>
             {logoUrl ? (
               <img
                 src={logoUrl}
@@ -391,7 +392,7 @@ export const StaggeredMenu = ({
                   </span>
               </div>
             )}
-          </div>
+          </Link>
           <button
             ref={toggleBtnRef}
             className="sm-toggle"
@@ -424,7 +425,7 @@ export const StaggeredMenu = ({
             {items && items.length ? (
               items.map((it, idx) => (
                 <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1} onClick={closeMenu}>
+                  <a className="sm-panel-item" href={it.href} aria-label={it.ariaLabel} data-index={idx + 1} onClick={closeMenu}>
                     <span className="sm-panel-itemLabel">{it.label}</span>
                   </a>
                 </li>

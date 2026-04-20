@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import StaggeredMenu from "../ui/StaggeredMenu/StaggeredMenu";
 
 const NAV = [
-  { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
-  { label: "Team", href: "#team" },
-  { label: "Journal", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Team", href: "/#team" },
+  { label: "Journal", href: "/#blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -35,8 +35,8 @@ export default function Navbar() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo - Hidden on mobile, shown on desktop */}
-          <a
-            href="#top"
+          <Link
+            to="/"
             data-testid="navbar-logo"
             className="hidden lg:flex items-center gap-2.5 group"
           >
@@ -46,7 +46,7 @@ export default function Navbar() {
             <span className="font-display text-[17px] tracking-tight font-medium">
               Installer<span className="text-[#0047AB]">Guru</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-10">
