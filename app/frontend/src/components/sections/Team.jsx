@@ -2,39 +2,39 @@ import { motion } from "framer-motion";
 
 const TEAM = [
   {
-    name: "Sudip Batabyal",
+    name: "Mr. Sudip Batabyal",
     role: "CEO",
-    url: "https://images.pexels.com/photos/14589344/pexels-photo-14589344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  },
-  {
-    name: "Tapasi Batabyal",
-    role: "Director",
-    url: "https://images.unsplash.com/photo-1769636929388-99eff95d3bf1?crop=entropy&cs=srgb&fm=jpg&q=85",
+    url: "https://www.installerguru.in/uploads/employee/1756291793_WhatsApp Image 2025-08-27 at 4.06.40 PM.jpeg",
   },
   {
     name: "Mahendra Raibari",
     role: "Hardware Support",
-    url: "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?crop=entropy&cs=srgb&fm=jpg&q=85",
+    url: "https://www.installerguru.in/uploads/employee/1748177020_editphoto.jpg",
   },
   {
     name: "Khushiram Gurjar",
     role: "Network Support",
-    url: "https://images.unsplash.com/photo-1762522926157-bcc04bf0b10a?crop=entropy&cs=srgb&fm=jpg&q=85",
+    url: "https://www.installerguru.in/uploads/employee/1742974058_WhatsApp Image 2025-03-26 at 12.57.15_54f64ac3.jpg",
   },
   {
     name: "Birbal Sain",
     role: "System Admin",
-    url: "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=srgb&fm=jpg&q=85",
+    url: "https://www.installerguru.in/uploads/employee/1756292914_WhatsApp Image 2025-08-27 at 4.37.49 PM-removebg-preview.jpg",
+  },
+  {
+    name: "Tapasi Batabyal",
+    role: "Director",
+    url: "https://www.installerguru.in/uploads/employee/1756292508_WhatsApp Image 2025-08-27 at 4.28.56 PM-removebg-preview.jpg",
   },
   {
     name: "Sandeep Sharma",
-    role: "Network Admin",
-    url: "https://images.pexels.com/photos/32721690/pexels-photo-32721690.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    role: "Network Administrator",
+    url: "https://www.installerguru.in/uploads/employee/1748177502_1746526390_WhatsApp Image 2025-05-06 at 3.39.03 PM (1).jpeg",
   },
   {
     name: "Shyam Sharma",
     role: "Hardware Manager",
-    url: "https://images.pexels.com/photos/12660379/pexels-photo-12660379.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    url: "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=srgb&fm=jpg&q=85",
   },
 ];
 
