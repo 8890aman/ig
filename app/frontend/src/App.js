@@ -15,6 +15,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import ServiceDetail from "./pages/ServiceDetail";
 
 function Home() {
   useEffect(() => {
@@ -58,6 +59,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
