@@ -1,28 +1,14 @@
-import { motion } from "framer-motion";
-import { Hospital, GraduationCap, Building2, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { INDUSTRIES_DATA } from "../../data/industriesData";
 
-const INDUSTRIES = [
-  {
-    icon: Hospital,
-    name: "Healthcare",
-    clients: ["Sudha Medical", "Jain Fertility", "Bharti Hospital", "Sims"],
-    desc: "HMS deployment, biomedical device networks, HIPAA-grade backups, 24/7 remote response for hospitals, clinics and diagnostic centers.",
-  },
-  {
-    icon: GraduationCap,
-    name: "Education",
-    clients: ["Colleges", "Schools", "Training Centers"],
-    desc: "Campus Wi-Fi design, computer lab rollouts, library management systems, exam-grade secure networks with content filtering.",
-  },
-  {
-    icon: Building2,
-    name: "Enterprise",
-    clients: ["Asmi Global", "Tantia", "SMBs"],
-    desc: "Private cloud migrations, server room build-outs, ERP/accounting software, endpoint management and identity governance.",
-  },
-];
+const INDUSTRIES = Object.values(INDUSTRIES_DATA);
 
 export default function Industries() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   return (
     <section
       id="industries"
@@ -66,18 +52,25 @@ export default function Industries() {
             transition={{ duration: 1 }}
             className="lg:col-span-5 relative aspect-[4/5] overflow-hidden border border-[#E5E7EB] bg-[#1A1A1A] lg:sticky lg:top-24"
           >
-            <img
-              src="https://images.unsplash.com/photo-1769147555720-71fc71bfc216?crop=entropy&cs=srgb&fm=jpg&q=85"
-              alt="Modern hospital building"
-              className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 hover:scale-105 transition-all duration-[1200ms] ease-out"
-            />
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={activeIdx}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6 }}
+                src={INDUSTRIES[activeIdx].image}
+                alt={INDUSTRIES[activeIdx].title}
+                className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 hover:scale-105 transition-all duration-[1200ms] ease-out"
+              />
+            </AnimatePresence>
             <div className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-white/90 bg-black/30 backdrop-blur px-2 py-1">
-              Primary sector · Healthcare
+              Sector · {INDUSTRIES[activeIdx].title}
             </div>
             <div className="absolute bottom-6 left-6 right-6">
               <div className="bg-black/30 backdrop-blur-md inline-block p-4 md:p-6 border-l-2 border-[#0047AB]">
                 <div className="font-display text-[24px] md:text-[36px] leading-none tracking-tight text-white">
-                  25+ hospitals
+                  {activeIdx === 0 ? "25+ hospitals" : activeIdx === 1 ? "10+ campuses" : "40+ enterprises"}
                   <br />
                   <span className="text-[#9BB7E0]">1 engineering partner.</span>
                 </div>
@@ -88,45 +81,50 @@ export default function Industries() {
           <div className="lg:col-span-7 divide-y divide-[#E5E7EB] border-t border-b border-[#E5E7EB]">
             {INDUSTRIES.map((ind, i) => (
               <motion.div
-                key={ind.name}
+                key={ind.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                data-testid={`industry-${ind.name.toLowerCase()}`}
-                className="group grid grid-cols-12 gap-4 md:gap-6 py-8 md:py-10 hover:bg-[#F9F9F8] transition-colors duration-500 px-2"
+                onMouseEnter={() => setActiveIdx(i)}
               >
-                <div className="col-span-12 md:col-span-1 flex items-start">
-                  <ind.icon
-                    size={24}
-                    strokeWidth={1.2}
-                    className="text-[#0047AB] group-hover:rotate-6 transition-transform duration-500"
-                  />
-                </div>
-                <div className="col-span-12 md:col-span-5">
-                  <h3 className="font-display text-[30px] md:text-[40px] leading-none tracking-tight font-medium mb-3">
-                    {ind.name}
-                  </h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {ind.clients.map((c) => (
-                      <span
-                        key={c}
-                        className="font-mono text-[10px] uppercase tracking-wider text-[#52525B] border border-[#E5E7EB] px-2 py-1"
-                      >
-                        {c}
-                      </span>
-                    ))}
+                <Link
+                  to={`/industries/${ind.id}`}
+                  data-testid={`industry-${ind.title.toLowerCase()}`}
+                  className="group grid grid-cols-12 gap-4 md:gap-6 py-8 md:py-10 hover:bg-[#F9F9F8] transition-colors duration-500 px-2"
+                >
+                  <div className="col-span-12 md:col-span-1 flex items-start">
+                    <ind.icon
+                      size={24}
+                      strokeWidth={1.2}
+                      className="text-[#0047AB] group-hover:rotate-6 transition-transform duration-500"
+                    />
                   </div>
-                </div>
-                <div className="col-span-12 md:col-span-5 text-[14px] md:text-[15px] leading-relaxed text-[#52525B]">
-                  {ind.desc}
-                </div>
-                <div className="col-span-12 md:col-span-1 flex items-start justify-end">
-                  <ArrowUpRight
-                    size={18}
-                    className="text-[#1A1A1A] group-hover:text-[#0047AB] group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500"
-                  />
-                </div>
+                  <div className="col-span-12 md:col-span-5">
+                    <h3 className="font-display text-[30px] md:text-[40px] leading-none tracking-tight font-medium mb-3">
+                      {ind.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-1.5">
+                      {ind.clients.map((c) => (
+                        <span
+                          key={c}
+                          className="font-mono text-[10px] uppercase tracking-wider text-[#52525B] border border-[#E5E7EB] px-2 py-1"
+                        >
+                          {c}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="col-span-12 md:col-span-5 text-[14px] md:text-[15px] leading-relaxed text-[#52525B]">
+                    {ind.desc}
+                  </div>
+                  <div className="col-span-12 md:col-span-1 flex items-start justify-end">
+                    <ArrowUpRight
+                      size={18}
+                      className="text-[#1A1A1A] group-hover:text-[#0047AB] group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-500"
+                    />
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>

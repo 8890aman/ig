@@ -16,6 +16,7 @@ import Blog from "@/components/sections/Blog";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import ServiceDetail from "./pages/ServiceDetail";
+import IndustryDetail from "./pages/IndustryDetail";
 
 function Home() {
   const lenisRef = useRef(null);
@@ -88,6 +89,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/industries/:slug" element={<IndustryDetail />} />
         </Routes>
       </BrowserRouter>
     </div>
