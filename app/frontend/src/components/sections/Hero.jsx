@@ -35,7 +35,7 @@ export default function Hero() {
         {/* H1 with staggered mask */}
         <h1
           data-testid="hero-heading"
-          className="font-display font-medium tracking-[-0.03em] text-[44px] sm:text-[64px] md:text-[88px] lg:text-[112px] leading-[0.95] text-[#1A1A1A] max-w-[1200px]"
+          className="font-display font-medium tracking-[-0.03em] text-[44px] sm:text-[64px] md:text-[88px] lg:text-[112px] 2xl:text-[130px] leading-[0.95] text-[#1A1A1A] max-w-[1200px]"
         >
           {["We engineer", "IT that hospitals", "& businesses", "rely on."].map(
             (line, i) => (
