@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import StaggeredMenu from "../ui/StaggeredMenu/StaggeredMenu";
 
 const NAV = [
   { label: "Services", href: "#services" },
@@ -85,54 +86,25 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setOpen(!open)}
-            data-testid="navbar-mobile-toggle"
-            className="lg:hidden w-10 h-10 grid place-items-center border border-[#E5E7EB]"
-            aria-label="Toggle menu"
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="lg:hidden bg-[#F9F9F8] border-t border-[#E5E7EB]"
-          data-testid="mobile-menu"
-        >
-          <div className="container-custom">
-            {NAV.map((item, i) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                data-testid={`mobile-nav-${item.label.toLowerCase()}`}
-                className="flex items-baseline gap-3 py-2 border-b border-[#E5E7EB]"
-              >
-                <span className="font-mono text-[10px] text-[#0047AB]">
-                  0{i + 1}
-                </span>
-                <span className="font-display text-2xl">{item.label}</span>
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              data-testid="mobile-cta"
-              className="mt-3 inline-flex items-center justify-between bg-[#1A1A1A] text-white px-4 py-3 text-sm"
-            >
-              Free consultation
-              <ArrowUpRight size={16} />
-            </a>
-          </div>
-        </motion.div>
-      )}
+      {/* Mobile Staggered Menu */}
+      <div className="lg:hidden absolute top-0 left-0 right-0 h-full">
+        <div className="container-custom relative h-full">
+          <StaggeredMenu
+            items={NAV}
+            socialItems={[
+              { label: "WhatsApp", link: "https://wa.me/917003489743" },
+              { label: "LinkedIn", link: "https://linkedin.com" },
+            ]}
+            menuButtonColor="#1A1A1A"
+            openMenuButtonColor="#1A1A1A"
+            accentColor="#0047AB"
+            colors={["#F9F9F8", "#0047AB"]}
+          />
+        </div>
+      </div>
     </motion.header>
   );
 }
